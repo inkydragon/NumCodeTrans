@@ -11,6 +11,7 @@
 
 ```sh
 # f77 test driver
+cd f77/
 gfortran -std=legacy -g -o fdop853.exe dr_dop853.f  && ./fdop853.exe 
 gfortran -std=legacy -g -o fdopri5.exe dr_dopri5.f  && ./fdopri5.exe
 
