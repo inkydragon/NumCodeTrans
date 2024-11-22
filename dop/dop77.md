@@ -5,6 +5,20 @@
 ```
 
 - [ENH:MAINT:integrate: Rewrite DOP F77 code in C #21683](https://github.com/scipy/scipy/pull/21683)
+
+
+## Test
+
+```sh
+gfortran -std=legacy -g -o dop853.exe dr_dop853.f  && ./dop853.exe 
+gfortran -std=legacy -g -o dopri5.exe dr_dopri5.f  && ./dopri5.exe
+
+cd cprog/
+gcc -g -o dop853.exe dop853.c vanderp.c -I. -lm && ./dop853.exe 
+gcc -g -o dopri5.exe dopri5.c aren.c -I. -lm && ./dopri5.exe 
+gcc -g -o retard.exe retard.c ret.c -I. -lm && ./retard.exe 
+```
+
 ## Ref
 
 - [Fortran and Matlab Codes/Nonstiff Differential Equations](http://www.unige.ch/~hairer/software.html)
