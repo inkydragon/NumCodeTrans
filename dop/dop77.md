@@ -10,8 +10,9 @@
 ## Test
 
 ```sh
-gfortran -std=legacy -g -o dop853.exe dr_dop853.f  && ./dop853.exe 
-gfortran -std=legacy -g -o dopri5.exe dr_dopri5.f  && ./dopri5.exe
+# f77 test driver
+gfortran -std=legacy -g -o fdop853.exe dr_dop853.f  && ./fdop853.exe 
+gfortran -std=legacy -g -o fdopri5.exe dr_dopri5.f  && ./fdopri5.exe
 
 cd cprog/
 gcc -g -o dop853.exe dop853.c vanderp.c -I. -lm && ./dop853.exe 
