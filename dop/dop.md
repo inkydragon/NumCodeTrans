@@ -18,7 +18,10 @@ gfortran -std=legacy -g -o fdopri5.exe dr_dopri5.f  && ./fdopri5.exe
 cd cprog/
 gcc -g -o dop853.exe dop853.c vanderp.c -lm && ./dop853.exe 
 gcc -g -o dopri5.exe dopri5.c aren.c -lm && ./dopri5.exe 
-gcc -g -o retard.exe retard.c ret.c -lm && ./retard.exe 
+gcc -g -o retard.exe retard.c ret.c -lm && ./retard.exe
+
+# dop.c
+gcc -g -o dop853.exe _dop.c test_dop853.c -lm && ./dop853.exe 
 ```
 
 ## Ref
