@@ -39,10 +39,9 @@ C --- PRINT FINAL SOLUTION
         WRITE (6,99) X,Y(1),Y(2)
  99     FORMAT(1X,'X =',F5.2,'    Y =',2E18.10)
 C --- PRINT STATISTICS
-        WRITE (6,90) TOL
- 90     FORMAT('       tol=',D8.2)
-        WRITE (6,91) (IWORK(J),J=17,20)
- 91     FORMAT(' fcn=',I5,' step=',I4,' accpt=',I4,' rejct=',I3)
+        WRITE (6,91) RTOL,(IWORK(J),J=17,20)
+ 91     FORMAT('     tol=',D8.2,'   fcn=',I5,' step=',I4,
+     &             ' accpt=',I4,' rejct=',I3)
         STOP
         END
 C

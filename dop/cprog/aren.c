@@ -7,7 +7,7 @@
 #define  nrdens    2
 #define  licont    nrdens
 
-char format99[] = "x=%f  y=%12.10f %12.10f  nstep=%li\r\n";
+char format99[] = "x =%6.2f  y =%18.10e %18.10e  nstep =%4li\r\n";
 
 
 void faren (unsigned n, double x, double *y, double *f)
@@ -72,13 +72,10 @@ int main (void)
   res = dopri5 (ndgl, faren, x, y, xend, &rtoler, &atoler, itoler, solout, iout,
 		stdout, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, ndgl, NULL, licont);
 
-  printf ("x=xend  y=%12.10f %12.10f\r\n", y[0], y[1]);
-  printf ("rtol=%12.10f   fcn=%li   step=%li   accpt=%li   rejct=%li\r\n",
+  printf ("x =%6.2f  y =%18.10e %18.10e\r\n", xend, y[0], y[1]);
+  printf ("\trtol=%g   fcn=%li   step=%li   accpt=%li   rejct=%li\r\n",
 	  rtoler, nfcnRead(), nstepRead(), naccptRead(), nrejctRead());
 
   return 0;
 
 } /* main */
-
-
-

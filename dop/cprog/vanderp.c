@@ -6,7 +6,7 @@
 #define  ndgl      2
 #define  nrdens    2
 
-char format99[] = "x=%f  y=%12.10f %12.10f  nstep=%li\r\n";
+char format99[] = "x =%5.2f  y =%18.10e %18.10e  nstep =%4li\r\n";
 
 
 void fvpol (unsigned n, double x, double *y, double *f)
@@ -25,7 +25,7 @@ void solout (long nr, double xold, double x, double* y, unsigned n, int* irtrn)
 
   if (nr == 1)
   { 
-    printf ( "x=%f  y=%12.10f %12.10f  nstep=%li\r\n", x, y[0], y[1], nr-1);
+    printf (format99, x, y[0], y[1], nr-1);
     xout = x + 0.1;
   }
   else 
@@ -50,18 +50,16 @@ int main (void)
   y[1] = 0.0;
   xend = 2.0;
   itoler = 0;
-  rtoler = 1.0E-6;
+  rtoler = 1.0E-9;
   atoler = rtoler;
-  
+
   res = dop853 (ndgl, fvpol, x, y, xend, &rtoler, &atoler, itoler, solout, iout,
 		stdout, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0, 0, 1, ndgl, NULL, 0);
 
-  printf ("x=xend  y=%12.10f %12.10f\r\n", y[0], y[1]);
-  printf ("rtol=%12.10f   fcn=%li   step=%li   accpt=%li   rejct=%li\r\n",
+  printf ("x =%5.2f  y =%18.10e %18.10e\r\n", xend, y[0], y[1]);
+  printf ("\trtol=%g   fcn=%li   step=%li   accpt=%li   rejct=%li\r\n",
 	  rtoler, nfcnRead(), nstepRead(), naccptRead(), nrejctRead());
 
   return 0;
 
 } /* main */
-
-

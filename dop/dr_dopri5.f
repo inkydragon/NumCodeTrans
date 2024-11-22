@@ -38,8 +38,8 @@ C --- CALL OF THE SUBROUTINE DOPRI5
      &              SOLOUT,IOUT,
      &              WORK,LWORK,IWORK,LIWORK,RPAR,IPAR,IDID)
 C --- PRINT FINAL SOLUTION
-        WRITE (6,99) Y(1),Y(2)
- 99     FORMAT(1X,'X = XEND     Y =',2E18.10)
+        WRITE (6,99) X,Y(1),Y(2)
+ 99     FORMAT(1X,'X =',F6.2,'    Y =',2E18.10)
 C --- PRINT STATISTICS
         WRITE (6,91) RTOL,(IWORK(J),J=17,20)
  91     FORMAT('     tol=',D8.2,'   fcn=',I5,' step=',I4,
